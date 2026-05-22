@@ -11,7 +11,7 @@
   - Генерация бинарных фичей, работа с выбросами
   - Линейная регрессия (аналитическое решение, SGD, Batch/Mini-batch)
   - Ridge, Lasso, ElasticNet, сравнение метрик (MAE, RMSE, R²)
-- 📓 [Ноутбук](ML1_Introduction.ID_1254798-1/src/ml1.ipynb)
+- [Ноутбук](ML1_Introduction.ID_1254798-1/src/ml1.ipynb)
 
 ### 2. ML2: Supervised Learning
 - **Задача:** Продвинутая регрессия с полиномиальными признаками и регуляризацией
