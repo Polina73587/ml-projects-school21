@@ -1,0 +1,27 @@
+# Виртуальные окружения
+venv/
+.venv/
+env/
+ENV/
+
+# Python & Jupyter
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Данные (тяжёлые или временные)
+*.csv
+*.json
+*.xlsx
+data/
+datasets/
+
+# Файлы ОС
+.DS_Store
+.DS_Store?
+Thumbs.db
+
+# Папки редакторов кода (на всякий случай)
+.vscode/
+.idea/
