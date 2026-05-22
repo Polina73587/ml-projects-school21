@@ -1,4 +1,4 @@
-# 📊 ML Projects from School 21
+#  ML Projects from School 21
 
 Портфолио проектов по машинному обучению, выполненных в рамках программы [School 21](https://21-school.ru/). В репозитории собраны ноутбуки с полным циклом разработки: от предобработки данных и feature engineering до обучения, регуляризации и оценки моделей.
 
@@ -22,7 +22,7 @@
   - Анализ стабильности моделей и подбор гиперпараметров
 -  [Ноутбук](ML2_Supervised_learning.ID_1254799-1/src/ml2.ipynb)
 
-## 🚀 Как запустить проекты
+##  Как запустить проекты
 
 ### 1. Скачайте данные
 Датасеты доступны на [Kaggle: Two Sigma Connect](https://www.kaggle.com/competitions/two-sigma-connect-rental-listing-inquiries/data).  
