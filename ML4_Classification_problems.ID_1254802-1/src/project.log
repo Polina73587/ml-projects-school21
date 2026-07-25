@@ -1,0 +1,113 @@
+14:22:33 | INFO     | ЭТАП 1: ОПТИМИЗАЦИЯ ПАМЯТИ
+14:22:33 | INFO     | Размер до оптимизации: 72.65 MB
+14:22:33 | INFO     | Размер после: 5.89 MB. Экономия: 91.9%
+
+14:22:33 | INFO     | ЭТАП 2: TEMPORAL SPLIT
+14:22:33 | INFO     | Размер train: 22772 строк (31.2%)
+14:22:33 | INFO     | Диапазон дат train: 2009-01-05 00:00:00 - 2009-08-28 00:00:00
+14:22:33 | INFO     | Размер valid: 23911 строк (32.8%)
+14:22:33 | INFO     | Диапазон дат valid: 2009-08-31 00:00:00 - 2010-04-27 00:00:00
+14:22:33 | INFO     | Размер test: 26300 строк (36.0%)
+14:22:33 | INFO     | Диапазон дат test: 2010-04-28 00:00:00 - 2010-12-30 00:00:00
+
+14:22:33 | INFO     | ЭТАП 3: СОЗДАНИЕ PIPELINE
+14:22:33 | INFO     | Категориальные признаки: 14 колонок
+14:22:33 | INFO     | Числовые признаки: 14 колонок
+14:22:33 | INFO     | ЭТАП 4: ОБУЧЕНИЕ МОДЕЛЕЙ
+14:22:33 | INFO     | LogisticRegression - готово
+14:22:33 | INFO     | GaussianNB - готово
+14:22:33 | INFO     | KNeighborsClassifier - готово
+
+14:22:33 | INFO     | ЭТАП 5: ОЦЕНКА КАЧЕСТВА
+14:22:33 | INFO     | LogisticRegression: Accuracy = 0.87
+14:22:33 | INFO     | GaussianNB: Accuracy = 0.85
+14:22:33 | INFO     | KNeighborsClassifier: Accuracy = 0.88 (лучшая)
+
+14:22:34 | INFO     | ЭТАП 6: МЕТРИКИ
+14:22:34 | INFO     | LogicticRegression	 Precison = 0.60, Recall = 0.10, F1 = 0.17
+14:22:34 | INFO     | GaussianNB	 Precison = 0.43, Recall = 0.36, F1 = 0.39
+14:22:34 | INFO     | KNeighborsClassifier	 Precison = 0.61, Recall = 0.24, F1 = 0.34
+14:22:34 | INFO     | 
+
+14:22:34 | INFO     | ЭТАП 7: ОЦЕНКА GINI SCORE
+14:22:34 | INFO     | LogisticRegression Gini: 0.4289
+14:22:34 | INFO     | GaussianNB Gini: 0.4609
+14:22:34 | INFO     | KNeighborsClassifier Gini: 0.3173
+14:22:34 | INFO     | 
+
+14:22:35 | INFO     | ЭТАП 8: РЕАЛИЗАЦИЯ GINI SCORE
+14:22:35 | INFO     | Сравнение собственной реализации с sklearn:
+14:22:35 | INFO     | LogisticRegression: Gini (custom) = 0.4289 | Gini (sklearn) = 0.4289
+14:22:35 | INFO     | GaussianNB: Gini (custom) = 0.4609 | Gini (sklearn) = 0.4609
+14:22:35 | INFO     | KNeighborsClassifier: Gini (custom) = 0.3173 | Gini (sklearn) = 0.3173
+14:22:35 | INFO     | Вывод: результаты совпадают с точностью до округления.
+
+14:22:35 | INFO     | ЭТАП 9: ОБУЧЕНИЕ СОБСТВЕННЫХ МОДЕЛЕЙ
+14:22:37 | INFO     | LogisticRegression - готово
+14:22:37 | INFO     | GaussianNB - готово
+14:22:37 | INFO     | KNeighborsClassifier - готово
+
+14:22:37 | INFO     | ЭТАП 10: СРАВНЕНИЕ СОБСТВЕННЫХ МОДЕЛЕЙ С SKLEARN
+14:23:19 | INFO     | Сравнение Accuracy (My vs Sklearn):
+14:23:19 | INFO     | LogisticRegression:  My = 0.8728 | Sklearn = 0.8718
+14:23:19 | INFO     | GaussianNB:          My = 0.8510 | Sklearn = 0.8510
+14:23:19 | INFO     | KNN:                 My = 0.8786 | Sklearn = 0.8786
+
+14:24:01 | INFO     | Результаты Gini для собвственных моделей
+14:24:01 | INFO     | Gini MyLogisticRegression: 0.4417
+14:24:01 | INFO     | Gini MyGaussianNB: 0.4612
+14:24:01 | INFO     | Gini MyKNN: 0.3173
+
+14:24:01 | INFO     | ЭТАП 11: СОЗДАНИЕ НОВЫХ ПРИЗНАКОВ
+14:24:01 | INFO     | Создание дробных признаков:
+14:24:01 | INFO     | Создание групповых признаков
+14:24:01 | INFO     | Новые признаки добавлены в train_df, valid_df, test_df
+
+14:24:01 | INFO     | ЭТАП 12: ОБУЧЕНИЕ МОДЕЛЕЙ С НОВЫМИ ПРИЗНАКАМИ
+14:24:01 | INFO     | Добавлено 5 новых признаков: ['Price vs Market', 'Price vs MMR', 'Warranty Ratio', 'Median Cost by Make', 'Bad Buy Rate by Size']
+14:24:01 | INFO     | Создан новый Pipeline с обновлёнными признаками
+14:24:01 | INFO     | Модели обучены на данных с новыми признаками
+
+14:24:01 | INFO     | ЭТАП 13: СРАВНЕНИЕ GINI (ДО И ПОСЛЕ ДОБАВЛЕНИЯ ПРИЗНАКОВ)
+14:24:02 | INFO     | Результаты Gini:
+14:24:02 | INFO     |   LogisticRegression: 0.4289 → 0.4607
+14:24:02 | INFO     |   GaussianNB:         0.4609 → 0.4598
+14:24:02 | INFO     |   KNN:                0.3173 → 0.3145
+14:24:02 | INFO     | ВЫВОД:
+14:24:02 | INFO     |   - Лучший Gini: LogisticRegression = 0.4607
+14:24:02 | INFO     |   - Добавление признаков улучшило качество LogisticRegression
+14:24:02 | INFO     |   - Price vs MMR показал корреляцию 0.03 с VehBCost (независимый признак)
+14:24:02 | INFO     |   - Все модели превышают требуемый порог Gini > 0.15
+
+14:24:02 | INFO     | ЭТАП 14: УДАЛЕНИЕ НЕВАЖНЫХ ПРИЗНАКОВ
+14:24:02 | INFO     | 1. Ручной метод
+14:24:02 | INFO     | Удалила 5 признаков. Стало 17 числовых признаков и 11 категориальных
+14:24:02 | INFO     | LogisticRegression_cleaned_by_hand Gini: 0.4656
+14:24:02 | INFO     | Улучшение на 0.0050 (1.08%)
+14:24:02 | INFO     | 2. L1 regularization
+14:24:03 | INFO     | LogisticRegression_with_l1 Gini: 0.4674
+14:24:03 | INFO     | Улучшение на 0.0067 (1.46%). Обнулили 21 признак
+
+14:24:03 | INFO     | ЭТАП 15: НАХОЖДЕНИЕ ЛУЧШЕЙ МОДЕЛИ ПО ГИПЕРПАРАМЕТРАМ
+14:49:23 | INFO     | best_params {'linear_regression__C': 0.01, 'linear_regression__class_weight': 'balanced', 'linear_regression__l1_ratio': 0.2}
+14:49:23 | INFO     | Best LogisticRegression Gini: 0.4712
+14:49:23 | INFO     | Улучшение на 0.0105 (2.28%).
+
+14:49:23 | INFO     | ЭТАП 16: СРАВНЕНИЕ GINI НА TRAIN, VALID, TEST
+14:49:23 | INFO     | Best Model on train Gini: 0.4784
+14:49:23 | INFO     | Best Model on valid Gini: 0.4712
+14:49:23 | INFO     | Best Model on test Gini: 0.4636
+14:49:23 | INFO     | Разница между Train и Test составляет всего -3.10 %
+
+14:49:23 | INFO     | ЭТАП 17: РЕАЛИЗАЦИЯ СОБСТВЕННЫХ ФУНКЦИЙ Recall, Precision, F1 score and AUC PR metrics
+14:49:24 | INFO     | Метрики на test: 
+14:49:24 | INFO     | Precision: 0.2308
+14:49:24 | INFO     | Recall: 0.6213
+14:49:24 | INFO     | F1: 0.3366
+14:49:24 | INFO     | AUC PR: 0.3831
+
+14:49:24 | INFO     | Сравнение AUC PR с Sklearn
+14:49:24 | INFO     | Моя функция AUC PR: 0.3831
+14:49:24 | INFO     | Sklearn AUC PR: 0.3831
+14:49:24 | INFO     | Разница: 0.0000
+

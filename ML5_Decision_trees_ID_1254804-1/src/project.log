@@ -1,0 +1,90 @@
+10:48:02 | INFO     | ЭТАП 1: ОПТИМИЗАЦИЯ ПАМЯТИ
+10:48:02 | INFO     | Размер до оптимизации: 72.65 MB
+10:48:02 | INFO     | Размер после оптимизиции: 5.89 MB. Экономия: 91.9%
+
+10:48:02 | INFO     | ЭТАП 2: TEMPORAL SPLIT
+10:48:02 | INFO     | Размер train: 22772 строк (31.2%)
+10:48:02 | INFO     | Диапазон дат train: 2009-01-05 00:00:00 - 2009-08-28 00:00:00
+10:48:02 | INFO     | Размер valid: 23911 строк (32.8%)
+10:48:02 | INFO     | Диапазон дат valid: 2009-08-31 00:00:00 - 2010-04-27 00:00:00
+10:48:02 | INFO     | Размер test: 26300 строк (36.0%)
+10:48:02 | INFO     | Диапазон дат test: 2010-04-28 00:00:00 - 2010-12-30 00:00:00
+
+10:48:02 | INFO     | ЭТАП 2: РЕАЛИЗАЦИЯ ДЕРЕВЬЕВ РЕШЕНИЙ
+10:48:02 | INFO     | Реализованные компоненты:
+10:48:02 | INFO     |   - Node class: узел дерева с хранением данных, gini impurity, указателями на детей
+10:48:02 | INFO     |   - DecisionTreeClassifier: классификатор на основе Gini impurity
+10:48:02 | INFO     |   - DecisionTreeRegressor: регрессор на основе standard deviation
+10:48:02 | INFO     |   - ExtraTreesClassifier: рандомизированное дерево (Extra Randomized Tree)
+10:48:02 | INFO     | Реализованные функции:
+10:48:02 | INFO     |   - calculate_gini_impurity: расчёт Gini impurity для бинарной классификации
+10:48:02 | INFO     |   - find_best_split: поиск лучшего сплита по всем признакам
+10:48:02 | INFO     |   - find_best_split_randomized: поиск лучшего сплита по случайному подмножеству признаков
+10:48:02 | INFO     | Критерии разделения:
+10:48:02 | INFO     |   - Классификация: Gini impurity
+10:48:02 | INFO     |   - Регрессия: Standard deviation (MSE loss)
+10:48:02 | INFO     | Все классы поддерживают методы: fit, predict, predict_proba
+10:48:02 | INFO     | Параметр max_depth ограничивает глубину дерева для предотвращения переобучения
+
+10:48:02 | INFO     | ЭТАП 3: ОБУЧЕНИЕ И ОЦЕНКА МОДЕЛИ my DecisionTreeClassifier
+11:04:33 | INFO     | Модель: DecisionTreeClassifier my
+11:04:33 | INFO     | Предсказание на validation:
+11:04:33 | INFO     | Gini score: 0.4015
+11:04:33 | INFO     | Требуемый порог: 0.1
+11:04:33 | INFO     | ЗАДАНИЕ ВЫПОЛНЕНО: Gini score (0.4015) >= 0.1
+
+11:04:33 | INFO     | ЭТАП 4: ОБУЧЕНИЕ И ОЦЕНКА SKLEARN МОДЕЛИ DecisionTreeClassifier
+11:04:34 | INFO     | Модель: DecisionTreeClassifier sklearn
+11:04:34 | INFO     | Предсказание на validation:
+11:04:34 | INFO     | Gini score: 0.4065
+
+11:04:34 | INFO     | ЭТАП 5: ОБУЧЕНИЕ И ОЦЕНКА МОДЕЛИ my RandomForestClassifier
+11:08:27 | INFO     | Модель: my RandomForestClassifier
+11:08:27 | INFO     | Предсказание на validation:
+11:08:27 | INFO     | Gini score: 0.4607
+11:08:27 | INFO     | Требуемый порог: 0.15
+11:08:27 | INFO     | ЗАДАНИЕ ВЫПОЛНЕНО: Gini score (0.4607) >= 0.15
+
+11:08:27 | INFO     | ЭТАП 6: ОБУЧЕНИЕ И ОЦЕНКА МОДЕЛИ my GBDTClassifier
+11:13:01 | INFO     | Модель: my GBDTClassifier
+11:13:02 | INFO     | Предсказание на validation:
+11:13:02 | INFO     | Gini score: 0.4749
+
+11:13:16 | INFO     | ЭТАП 7: 
+11:13:16 | INFO     | LightGBM: Fine-tune гиперпараметров
+11:13:16 | INFO     | Gini базовой модели : 0.4682
+11:13:43 | INFO     | Лучший Gini: 0.4791
+11:13:43 | INFO     | Лучшие параметры: {'learning_rate': 0.010855248844906944, 'max_depth': 5, 'n_estimators': 185}
+11:13:44 | INFO     | Gini лучшей модели: 0.5015
+11:13:44 | INFO     | Улучшение: +7.1%
+
+11:13:44 | INFO     | CatBoost: Fine-tune гиперпараметров
+11:13:44 | INFO     | Gini базовой модели : 0.5001
+11:15:38 | INFO     | Лучший Gini: 0.4831
+11:15:38 | INFO     | Лучшие параметры: {'learning_rate': 0.10060583239305654, 'depth': 4, 'iterations': 159, 'l2_leaf_reg': 3.7102137653493816}
+11:15:39 | INFO     | Gini лучшей модели: 0.5171
+11:15:39 | INFO     | Улучшение: +3.4%
+
+11:15:39 | INFO     | XGBoost: Fine-tune гиперпараметров
+11:15:39 | INFO     | Gini базовой модели : 0.4550
+11:15:50 | INFO     | Лучший Gini: 0.4836
+11:15:50 | INFO     | Лучшие параметры: {'n_estimators': 109, 'max_depth': 6, 'learning_rate': 0.031019369460895806, 'min_child_weight': 1, 'gamma': 3.456269694047532, 'subsample': 0.7837397901236611, 'colsample_bytree': 0.9073327072838404, 'reg_lambda': 1.2587955482105824, 'reg_alpha': 0.022849809243720966}
+11:15:50 | INFO     | Gini лучшей модели: 0.5068
+11:15:50 | INFO     | Улучшение: +11.4%
+
+11:15:50 | INFO     | ЭТАП 8: ОЦЕНКА ЛУЧШЕЙ МОДЕЛИ (CatBoost) НА ВСЕХ ВЫБОРКАХ
+11:15:50 | INFO     | Лучшие параметры: {'learning_rate': 0.10060583239305654, 'depth': 4, 'iterations': 159, 'l2_leaf_reg': 3.7102137653493816}
+11:15:50 | INFO     | Train Gini: 0.5631
+11:15:50 | INFO     | Valid Gini: 0.5002
+11:15:50 | INFO     | Test Gini: 0.5022
+11:15:50 | INFO     | АНАЛИЗ ПЕРЕОБУЧЕНИЯ:
+11:15:50 | INFO     | Разница Train-Valid: 0.0629 (11.2%)
+11:15:50 | INFO     | Разница Valid-Test:  -0.0020 (-0.4%)
+11:15:50 | INFO     | Разница Train-Test:  0.0609 (10.8%)
+
+11:15:50 | INFO     | ЭТАП 9: ОБУЧЕНИЕ И ОЦЕНКА МОДЕЛИ ExtraTreesEnsemble
+11:34:03 | INFO     | Предсказание на validation:
+11:34:03 | INFO     | Gini score: 0.4779
+11:34:03 | INFO     | Требуемый порог: 0.12
+11:34:03 | INFO     | ЗАДАНИЕ ВЫПОЛНЕНО: Gini score (0.4779) >= 0.12
+
