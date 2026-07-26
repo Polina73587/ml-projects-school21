@@ -53,7 +53,7 @@
   - Диагностика текущего профессионального состояния с помощью методики Career Balance Wheel
   - Определение целевого состояния и ключевых метрик успеха на 2-3 и 5 лет
   - Разработка пошагового плана развития (Action Steps) для перехода от студента School 21 до Middle/Senior ML Engineer в Сбере
-- [Документ](CT00_ID_1576118-1/career_balance_wheel_and_goals_timetilne.pdf)
+- [Документ](CT00_ID_1576118-1/src/career_balance_wheel_and_goals_timetilne.pdf)
 
 ---
 
